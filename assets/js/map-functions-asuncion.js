@@ -18,7 +18,7 @@ window.onload = function() {
     'FIVE_COLOR': '#b30000'
   };
 
-  var geoJsonLayer = new L.GeoJSON.AJAX("data/techo_py_preliminar2.geojson", {
+  var geoJsonLayer = new L.GeoJSON.AJAX("data/techo_py_preliminar.geojson", {
       style: function(feature) {
           if (feature.properties.proba >= 0 && feature.properties.proba <= 0.20) {
               return {color: paletteColors.FIRST_COLOR};
