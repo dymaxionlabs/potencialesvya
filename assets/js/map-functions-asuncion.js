@@ -11,7 +11,6 @@ window.onload = function() {
 
 
   var paletteColors = {
-    'FIRST_COLOR': '#fef0d9',
     'SECOND_COLOR': '#fdcc8a',
     'THIRD_COLOR': '#fc8d59',
     'FOUR_COLOR': '#e34a33',
@@ -20,16 +19,14 @@ window.onload = function() {
 
   var geoJsonLayer = new L.GeoJSON.AJAX("data/techo_py_preliminar.geojson", {
       style: function(feature) {
-          if (feature.properties.proba >= 0 && feature.properties.proba <= 0.20) {
-              return {color: paletteColors.FIRST_COLOR};
-          } else if (feature.properties.proba >= 0.20 && feature.properties.proba <= 0.40) {
-            return {color: paletteColors.SECOND_COLOR};
-          } else if (feature.properties.proba >= 0.40 && feature.properties.proba <= 0.60) {
+          if (feature.properties.prob >= 0.8 && feature.properties.prob <= 0.85) {
+              return {color: paletteColors.SECOND_COLOR};
+          } else if (feature.properties.prob >= 0.85 && feature.properties.prob <= 0.90) {
             return {color: paletteColors.THIRD_COLOR};
-          } else if (feature.properties.proba >= 0.60 && feature.properties.proba <= 0.80) {
-            return {color: paletteColors.FOUR_COLOR}; 
-          } else if (feature.properties.proba >= 0.80 && feature.properties.proba <= 1) {
-            return {color: paletteColors.FIVE_COLOR};
+          } else if (feature.properties.prob >= 0.90 && feature.properties.prob <= 0.95) {
+            return {color: paletteColors.FOUR_COLOR};
+          } else if (feature.properties.prob >= 0.95 && feature.properties.prob <= 1) {
+            return {color: paletteColors.FIVE_COLOR}; 
           }
       }
   }).addTo(map);
