@@ -19,14 +19,16 @@ window.onload = function() {
 
   var geoJsonLayer = new L.GeoJSON.AJAX("data/guatemala.geojson", {
       style: function(feature) {
-          if (feature.properties.meanprob < 0.20) {
-              return {color: paletteColors.SECOND_COLOR};
-          } else if (feature.properties.meanprob >= 20 && feature.properties.meanprob < 0.40) {
+          if (feature.properties.meanprob >= 0 && feature.properties.meanprob <= 0.20) {
+              return {color: paletteColors.FIRST_COLOR};
+          } else if (feature.properties.meanprob >= 0.20 && feature.properties.meanprob <= 0.40) {
+            return {color: paletteColors.SECOND_COLOR};
+          } else if (feature.properties.meanprob >= 0.40 && feature.properties.meanprob <= 0.60) {
             return {color: paletteColors.THIRD_COLOR};
-          } else if (feature.properties.meanprob >= 0.40 && feature.properties.meanprob < 0.80) {
-            return {color: paletteColors.FOUR_COLOR};
+          } else if (feature.properties.meanprob >= 0.60 && feature.properties.meanprob <= 0.80) {
+            return {color: paletteColors.FOUR_COLOR}; 
           } else if (feature.properties.meanprob >= 0.80 && feature.properties.meanprob <= 1) {
-            return {color: paletteColors.FIVE_COLOR}; 
+            return {color: paletteColors.FIVE_COLOR};
           }
       }
   }).addTo(map);
