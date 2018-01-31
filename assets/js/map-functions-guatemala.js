@@ -1,5 +1,4 @@
 window.onload = function() {
-oeatures = fiona.open('test_guatemala_clip.geojson')
 
   var capaSatelite = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmFjdW5kb2JheWxlIiwiYSI6ImNqMnpkNzR4ODAwNDIyd3BybHVxbXk3emEifQ.sVR0_Ckb1UjZ1OUTCaFPnw", {
       attribution: 'Imágenes de <a href="http://www.mapbox.com/">Mapbox</a>.',
