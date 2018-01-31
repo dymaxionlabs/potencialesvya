@@ -1,4 +1,5 @@
 window.onload = function() {
+oeatures = fiona.open('test_guatemala_clip.geojson')
 
   var capaSatelite = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmFjdW5kb2JheWxlIiwiYSI6ImNqMnpkNzR4ODAwNDIyd3BybHVxbXk3emEifQ.sVR0_Ckb1UjZ1OUTCaFPnw", {
       attribution: 'Imágenes de <a href="http://www.mapbox.com/">Mapbox</a>.',
@@ -19,13 +20,13 @@ window.onload = function() {
 
   var geoJsonLayer = new L.GeoJSON.AJAX("data/guatemala.geojson", {
       style: function(feature) {
-          if (feature.properties.prob < 0.20) {
+          if (feature.properties.meanprob < 0.20) {
               return {color: paletteColors.SECOND_COLOR};
-          } else if (feature.properties.prob >= 20 && feature.properties.prob < 0.40) {
+          } else if (feature.properties.meanprob >= 20 && feature.properties.meanprob < 0.40) {
             return {color: paletteColors.THIRD_COLOR};
-          } else if (feature.properties.prob >= 0.40 && feature.properties.prob < 0.80) {
+          } else if (feature.properties.meanprob >= 0.40 && feature.properties.meanprob < 0.80) {
             return {color: paletteColors.FOUR_COLOR};
-          } else if (feature.properties.prob >= 0.80 && feature.properties.prob <= 1) {
+          } else if (feature.properties.meanprob >= 0.80 && feature.properties.meanprob <= 1) {
             return {color: paletteColors.FIVE_COLOR}; 
           }
       }
